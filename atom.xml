@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>汤包桑的自留地</title>
+  
+  <subtitle>To live is to change the world.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://tangbaosang.github.io/"/>
+  <updated>2019-04-01T14:52:46.392Z</updated>
+  <id>http://tangbaosang.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创站号</title>
+    <link href="http://tangbaosang.github.io/2019/04/01/%E5%88%9B%E7%AB%99%E5%8F%B7/"/>
+    <id>http://tangbaosang.github.io/2019/04/01/创站号/</id>
+    <published>2019-04-01T14:15:25.000Z</published>
+    <updated>2019-04-01T14:52:46.392Z</updated>
+    
+    <content type="html"><![CDATA[<p>又是一个个人网站。</p><p>过去的过去搭建了N个个人网站，每次搭建网站的时候满怀希望，打算在上面记录生活，积累知识，并待羽翼丰满切换成自己的后台程序。最终却更新不了几篇文章后闲置一段时间，直到服务器和域名过期也没能继续下去。</p><p>缺乏毅力，应当批评。</p><p>浪费了太多的时间、精力和金钱，也做了太多了无用功。</p><p>今天是2019年的4月1日。光阴似箭，没想到度过今年的前三个月的速度这么快。整体而言，今年还是朝着目标近了一步。过去的几个月里虽然花费在学习上的时间不多，但已经比去年累计起来还要多了。再加把劲，更充满斗志的冲下去，至少离自己做一个后端的目标不远了。</p><p>今年最大的收获是收获了彬彬，在今年的1月1日0点0分1秒，终于收获我爱。其中的幸福、喜悦和兴奋只有我自己知道。在拥有这么优秀的姑娘的同时也忽然感觉到了肩上扛下的责任，在那一霎那间仿佛拥有了整个世界。我得变得更强大才能守护好彬彬的美好。我与彬彬有个一年之约，就是一年后，我要变得足够强大，能毫不费力的完成现在的大部分计划，能有足够的财富娶她回家。</p><p>WordPress、Typecho、Hexo，网站搭了N个，类似慷慨激昂的创刊号也写了不少。但我相信这次不一样，定个小目标吧。5月1日前，每个月在这个网站更新5篇干货。记录并充实自己的技术。</p><p>一切都会更好的。毕竟，</p><p>心中有爱，脚下有风。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;又是一个个人网站。&lt;/p&gt;
+&lt;p&gt;过去的过去搭建了N个个人网站，每次搭建网站的时候满怀希望，打算在上面记录生活，积累知识，并待羽翼丰满切换成自己的后台程序。最终却更新不了几篇文章后闲置一段时间，直到服务器和域名过期也没能继续下去。&lt;/p&gt;
+&lt;p&gt;缺乏毅力，应当批评。&lt;/p&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
