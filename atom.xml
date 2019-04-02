@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tangbaosang.github.io/"/>
-  <updated>2019-04-01T14:52:46.392Z</updated>
+  <updated>2019-04-02T13:31:11.764Z</updated>
   <id>http://tangbaosang.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac下给ATOM配置Soskc代理</title>
+    <link href="http://tangbaosang.github.io/2019/04/02/Mac%E4%B8%8B%E7%BB%99ATOM%E9%85%8D%E7%BD%AESoskc%E4%BB%A3%E7%90%86/"/>
+    <id>http://tangbaosang.github.io/2019/04/02/Mac下给ATOM配置Soskc代理/</id>
+    <published>2019-04-02T13:30:46.000Z</published>
+    <updated>2019-04-02T13:31:11.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近又重新拾起了 ATOM 编辑器，这个源于 GitHub 的所谓21世纪现代编辑器在设计方面真的是深得我心（除了运行缓慢的基于Web的框架），另一方面相对于大家一致好评的 VSCode 持否定态度，可能是我们这类一致受到反 Microsoft 教育的 Linux 传教士骨子与生俱来的吧。(尽管 VSCode 基于ATOM，而 GitHub 不久前也被 MS 收购了…)</p><p>因为大家都知道的原因，在我们热爱的祖国的网络环境下想访问一些技术资源十分的困难，这也直接影响了 ATOM 的 <strong>apm</strong> 包管理器。</p><p>在一个遍地插件化的时代，一个大量优秀插件的平台插件却无法安装实在是一件非常难受的事情，好在 <strong>apm</strong> 支持被代理，下面来介绍一下如何在macOS上设置 <strong>apm</strong> 的代理。</p><p>使用 <strong>atom</strong> 或其他编辑器，打开 <strong>home</strong> 目录下的 <strong>.apmrc</strong> 文件，这里我使用的是 <strong>vim</strong> 编辑器，对于不知道改如何定位文件的新手，可以使用下面这个绝大多数条件下都适用的命令来编辑 <strong>apm</strong> 的配置文件。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.atom/.apm/.apmrc</span><br><span class="line"><span class="comment"># 你可以使用任意编辑器替换掉这个命令中的vim，比如emacs、subl，或者atom。</span></span><br></pre></td></tr></table></figure><p>注意， <strong>~/.atom/</strong> 这个目录下也有一个 <strong>.apmrc</strong> 文件，这个文件被设计出来也不知道有何用途，但如果编辑错误会导致报错，大家要避免踩坑。</p><p>在我们找到的 <strong>.apmrc</strong> 中的文件末尾，添加如下两行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http-proxy=http://127.0.0.1:1087</span><br><span class="line">https-proxy=http://127.0.0.1:1087</span><br></pre></td></tr></table></figure><p>然后保存这个配置文件，并使用下面的命令检查 <strong>apm</strong> 目前的状态：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apm install --check</span><br></pre></td></tr></table></figure><p>如果能看到下面的输出，则表示代理配置成功了：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Checking <span class="keyword">for</span> native build tools ✓</span><br></pre></td></tr></table></figure><p>注意，我使用的代理软件是 <strong>ShadowsocksX-NG</strong> ，不同的代理软件本地的http代理端口不同，你需要根据你的软件来修改配置中的http-proxy端口。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近又重新拾起了 ATOM 编辑器，这个源于 GitHub 的所谓21世纪现代编辑器在设计方面真的是深得我心（除了运行缓慢的基于Web的框架），另一方面相对于大家一致好评的 VSCode 持否定态度，可能是我们这类一致受到反 Microsoft 教育的 Linux 传教士骨
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>创站号</title>
