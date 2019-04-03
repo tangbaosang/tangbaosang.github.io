@@ -66,6 +66,102 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Debian9下为普通用户添加root权限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/03/Debian9下为普通用户添加root权限/" class="article-date">
+  <time datetime="2019-04-03T15:02:25.000Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/Debian9下为普通用户添加root权限/">Debian9下为普通用户添加root权限</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>服务器新装的系统，作为一个有着良好安全意识的运维人员，自然不能使用 <strong>root</strong> 用户裸奔。安装 <strong>sudo</strong> 工具包并为用户配置 <strong>root</strong> 权限是当务之急。</p>
+<p>在非 <strong>Ubuntu Desktop</strong> 的绝大多数 Linux 环境下（包括 <strong>Ubuntu Server</strong>) ，即使安装了 <strong>sudo</strong> 包，但是新建的用户仍让无法使用 sudo 提权。</p>
+<p>解决过无数次这样的问题了，决定还是在博客上记下来，一是方便日后查阅，二是方便在搜索引擎中曲折求索的新手用户。</p>
+<p>首先，保证安装了 <strong>sudo</strong> 软件包，使用root用户执行如下命令:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install sudo</span><br></pre></td></tr></table></figure>
+<p>然后添加新的用户（已有用户的请绕过这一步）</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser tangbao</span><br><span class="line"><span class="comment"># tangbao是我的用户名，请换成你需要的名字。</span></span><br></pre></td></tr></table></figure>
+<p>编辑文件 <strong>/etc/sudoers</strong> ,在其中找到 <strong>root ALL=(ALL:ALL) ALL</strong> 这一行，并在下面添加一行:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tangbao ALL=(ALL:ALL) ALL</span><br><span class="line"><span class="comment"># 将这里的tangbao换成你的用户名</span></span><br></pre></td></tr></table></figure>
+<p>保存 <strong>sudoers</strong> 文件的更改，注意，你的编辑器可能会收到警告，强制执行就行，如果你使用的是 <strong>vim</strong> 编辑器，执行命令，<strong>wq!</strong>。</p>
+<p>接下来切换到你的新用户，尝试用 <strong>sudo</strong> 执行一些命令，看看是否能够正常运行。比如:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/hostname</span><br></pre></td></tr></table></figure>
+<p>如果没有报错，顺利通过，那么恭喜你，你的用户已经可以提权至 <strong>root</strong> 权限！</p>
+<p><strong>“With great power comes great responsibility.”</strong> 最后希望你能记住这句话。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tangbaosang.github.io/2019/04/03/Debian9下为普通用户添加root权限/" data-id="cju1cu9au000022p8rc3a6gnl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Debian下安装Oh My Zsh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/03/Debian下安装Oh My Zsh/" class="article-date">
+  <time datetime="2019-04-03T14:49:19.000Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/Debian下安装Oh My Zsh/">Debian下安装Oh My Zsh</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>晚上ISP的服务器重置功能终于修复了，给服务器重装了系统，自带的 Bash Shell 自然是不能满足功能和观感上的需求的，在我个人认为最好用的两个Shell <strong>zsh</strong> 和 <strong>fish</strong> 中最终还是选择了 <strong>zsh</strong> ，不为别的，仅仅是 <strong>zsh</strong> 对于bash的兼容性最好。</p>
+<p>既然选择了 <strong>zsh</strong> 作为shell，那么自然要安装上目前最好用的 <strong>zsh</strong> 配置 <strong>Oh My Zsh</strong> 作为我们的配置文件。</p>
+<p>首先，作为最基本的，安装 <strong>zsh</strong>:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>接下来安装 <strong>oh-my-zsh</strong> ， 注意下面这个官方在官网<a href="ohmyz.sh" title="ohmyzsh的官网链接">http://ohmyz.sh</a> 提供的安装脚本是无法使用的（至少我在macOS、Debian、和Ubuntu上都无法使用）</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个官网上的脚本无法使用</span></span><br></pre></td></tr></table></figure>
+<p>我们移步至 <strong>Oh My Zsh</strong> 的 GitHub 页面，在 <strong>README.md</strong> 文件中找到以下脚本:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果机器上没有 curl 和 git 需要先安装这两个包</span></span><br></pre></td></tr></table></figure>
+<p>接下来就是一路下一步啦，终端会显示出炫酷的 Oh My Zsh 的 LOGO。此时，Oh My Zsh 部署成功。</p>
+<p>Enjoy your feeling…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tangbaosang.github.io/2019/04/03/Debian下安装Oh My Zsh/" data-id="cju1cu9b6000122p8bpajj2q5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Mac下给ATOM配置Soskc代理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/02/Mac下给ATOM配置Soskc代理/" class="article-date">
@@ -105,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tangbaosang.github.io/2019/04/02/Mac下给ATOM配置Soskc代理/" data-id="cju1arma70001nqp89f961w3x" class="article-share-link">Share</a>
+      <a data-url="http://tangbaosang.github.io/2019/04/02/Mac下给ATOM配置Soskc代理/" data-id="cju1cu9b8000222p84cfmg42p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -150,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tangbaosang.github.io/2019/04/01/创站号/" data-id="cju1arm9x0000nqp8y2hrggni" class="article-share-link">Share</a>
+      <a data-url="http://tangbaosang.github.io/2019/04/01/创站号/" data-id="cju1cu9b9000322p8g7d1mpgk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,6 +285,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/03/Debian9下为普通用户添加root权限/">Debian9下为普通用户添加root权限</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/03/Debian下安装Oh My Zsh/">Debian下安装Oh My Zsh</a>
+          </li>
         
           <li>
             <a href="/2019/04/02/Mac下给ATOM配置Soskc代理/">Mac下给ATOM配置Soskc代理</a>

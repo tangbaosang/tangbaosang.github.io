@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Debian下安装Oh My Zsh | 汤包桑的自留地</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="晚上ISP的服务器重置功能终于修复了，给服务器重装了系统，自带的 Bash Shell 自然是不能满足功能和观感上的需求的，在我个人认为最好用的两个Shell zsh 和 fish 中最终还是选择了 zsh ，不为别的，仅仅是 zsh 对于bash的兼容性最好。 既然选择了 zsh 作为shell，那么自然要安装上目前最好用的 zsh 配置 Oh My Zsh 作为我们的配置文件。 首先，作为最基">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian下安装Oh My Zsh">
+<meta property="og:url" content="http://tangbaosang.github.io/2019/04/03/Debian下安装Oh My Zsh/index.html">
+<meta property="og:site_name" content="汤包桑的自留地">
+<meta property="og:description" content="晚上ISP的服务器重置功能终于修复了，给服务器重装了系统，自带的 Bash Shell 自然是不能满足功能和观感上的需求的，在我个人认为最好用的两个Shell zsh 和 fish 中最终还是选择了 zsh ，不为别的，仅仅是 zsh 对于bash的兼容性最好。 既然选择了 zsh 作为shell，那么自然要安装上目前最好用的 zsh 配置 Oh My Zsh 作为我们的配置文件。 首先，作为最基">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-03T15:01:26.292Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Debian下安装Oh My Zsh">
+<meta name="twitter:description" content="晚上ISP的服务器重置功能终于修复了，给服务器重装了系统，自带的 Bash Shell 自然是不能满足功能和观感上的需求的，在我个人认为最好用的两个Shell zsh 和 fish 中最终还是选择了 zsh ，不为别的，仅仅是 zsh 对于bash的兼容性最好。 既然选择了 zsh 作为shell，那么自然要安装上目前最好用的 zsh 配置 Oh My Zsh 作为我们的配置文件。 首先，作为最基">
+  
+    <link rel="alternate" href="/atom.xml" title="汤包桑的自留地" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">汤包桑的自留地</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">To live is to change the world.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tangbaosang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Debian下安装Oh My Zsh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/03/Debian下安装Oh My Zsh/" class="article-date">
+  <time datetime="2019-04-03T14:49:19.000Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Debian下安装Oh My Zsh
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>晚上ISP的服务器重置功能终于修复了，给服务器重装了系统，自带的 Bash Shell 自然是不能满足功能和观感上的需求的，在我个人认为最好用的两个Shell <strong>zsh</strong> 和 <strong>fish</strong> 中最终还是选择了 <strong>zsh</strong> ，不为别的，仅仅是 <strong>zsh</strong> 对于bash的兼容性最好。</p>
+<p>既然选择了 <strong>zsh</strong> 作为shell，那么自然要安装上目前最好用的 <strong>zsh</strong> 配置 <strong>Oh My Zsh</strong> 作为我们的配置文件。</p>
+<p>首先，作为最基本的，安装 <strong>zsh</strong>:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>接下来安装 <strong>oh-my-zsh</strong> ， 注意下面这个官方在官网<a href="ohmyz.sh" title="ohmyzsh的官网链接">http://ohmyz.sh</a> 提供的安装脚本是无法使用的（至少我在macOS、Debian、和Ubuntu上都无法使用）</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个官网上的脚本无法使用</span></span><br></pre></td></tr></table></figure>
+<p>我们移步至 <strong>Oh My Zsh</strong> 的 GitHub 页面，在 <strong>README.md</strong> 文件中找到以下脚本:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果机器上没有 curl 和 git 需要先安装这两个包</span></span><br></pre></td></tr></table></figure>
+<p>接下来就是一路下一步啦，终端会显示出炫酷的 Oh My Zsh 的 LOGO。此时，Oh My Zsh 部署成功。</p>
+<p>Enjoy your feeling…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tangbaosang.github.io/2019/04/03/Debian下安装Oh My Zsh/" data-id="cju1cu9b6000122p8bpajj2q5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/03/Debian9下为普通用户添加root权限/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Debian9下为普通用户添加root权限
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/02/Mac下给ATOM配置Soskc代理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac下给ATOM配置Soskc代理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/03/Debian9下为普通用户添加root权限/">Debian9下为普通用户添加root权限</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/03/Debian下安装Oh My Zsh/">Debian下安装Oh My Zsh</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/Mac下给ATOM配置Soskc代理/">Mac下给ATOM配置Soskc代理</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/01/创站号/">创站号</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
